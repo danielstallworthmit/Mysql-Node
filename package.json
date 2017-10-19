@@ -1,0 +1,11 @@
+{
+  "name": "Mysql-Node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/danielstallworthmit/Mysql-Node.git",
+  "author": "danielstallworthmit <danielstallworthmit@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
+}
