@@ -6,6 +6,10 @@
   "author": "danielstallworthmit <danielstallworthmit@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "mysql": "^2.15.0"
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-execute": "^0.2.2",
+    "mysql": "^2.15.0",
+    "nodemon": "^1.12.1"
   }
 }
