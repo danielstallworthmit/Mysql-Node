@@ -5,7 +5,8 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'daniel',
     password: pass,
-    database: 'tests'
+    database: 'tests',
+    multipleStatements: true
 });
 
 connection.connect((err) => {
@@ -37,6 +38,12 @@ connection.query('call sp_getall()', (err, rows) => {
     rows[0].map((row) => {
         console.log(`${row.name} is in ${row.location}`);
     });
+});
+
+connection.query("set  @employee_id = 0; call sp_insert_employee(@emplyee_id, 'Ron', 'USA'); select @employee_id", (err, rows) => {
+    if (err) throw err;
+    console.log('Data received \n');
+    console.log(rows);
 });
 
 
