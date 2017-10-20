@@ -13,7 +13,7 @@ connection.connect((err) => {
     console.log('Connected to mysql db!');
 });
 
-const employee = {name: 'Jimmy', location: 'USA'}
+const employee = {name: 'Dan', location: 'USA'}
 connection.query('insert into employees set ?', employee, (err, res) => {
     if(err) throw err;
     console.log('Last inserted ID:', res);
@@ -31,10 +31,10 @@ connection.query('delete from employees where name = ?', ['Dan'], (err, res) => 
     console.log(res);
 });
 
-connection.query('SELECT * from employees', (err, rows) => {
+connection.query('call sp_getall()', (err, rows) => {
     if (err) throw err;
     console.log('Data received from db \n');
-    rows.map((row) => {
+    rows[0].map((row) => {
         console.log(`${row.name} is in ${row.location}`);
     });
 });
