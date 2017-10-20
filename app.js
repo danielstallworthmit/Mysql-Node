@@ -13,6 +13,23 @@ connection.connect((err) => {
     console.log('Connected to mysql db!');
 });
 
+const employee = {name: 'Jimmy', location: 'USA'}
+connection.query('insert into employees set ?', employee, (err, res) => {
+    if(err) throw err;
+    console.log('Last inserted ID:', res);
+});
+
+connection.query('update employees set location = ? where id = ?', ['South Africa', 5], (err, res) => {
+    if (err) throw err;
+    console.log(`Changed ${res.changedRows} row(s)`);
+    console.log(res);
+});
+
+connection.query('delete from employees where name = ?', ['Dan'], (err, res) => {
+    if (err) throw err;
+    console.log(`Deleted ${res.affectedRows} row(s)`);
+    console.log(res);
+});
 
 connection.query('SELECT * from employees', (err, rows) => {
     if (err) throw err;
@@ -25,4 +42,4 @@ connection.query('SELECT * from employees', (err, rows) => {
 
 connection.end((err) => {
     //End connection
-})
+});
